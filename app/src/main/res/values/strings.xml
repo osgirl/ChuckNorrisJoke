@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CNJoke</string>
+    <string name="Choose_an_option">Choose an option</string>
+    <string name="never_ending_joke_list">Never-ending Joke list</string>
+    <string name="text_input">Text input</string>
+    <string name="random_joke">Random Joke</string>
+    <string name="baseUrl">http://api.icndb.com/jokes/</string>
+    <string name="Loading">Loading…</string>
+    <string name="Avoid_explicit">Avoid explicit</string>
+    <string name="to_start_with">To start with the app, please click in the Floating Action Button</string>
+    <string name="Theres_been_an_error">There\'s been an error with the request. Please retry again</string>
+    <string name="Another_one">Another one</string>
 </resources>
