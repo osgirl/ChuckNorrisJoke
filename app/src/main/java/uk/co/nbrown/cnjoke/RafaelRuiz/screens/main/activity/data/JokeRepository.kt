@@ -4,6 +4,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import uk.co.nbrown.cnjoke.RafaelRuiz.screens.ChuckNorrisJokeApplication
+import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.activity.data.model.JokeBatchServerModel
 import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.activity.data.model.JokeServerModel
 
 /**
@@ -33,6 +34,30 @@ class JokeRepository constructor(private val jokeService: JokeService) {
             jokeService.getRandomJokeNoExplicit()
         } else {
             jokeService.getRandomJoke()
+        }
+
+        return single
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun getJokeWithMainCharacter(mainCharacter: String, noExplicit: Boolean): Single<JokeServerModel> {
+        val single: Single<JokeServerModel> = if (noExplicit) {
+            jokeService.getJokeWithMainCharacterNoExplicit(mainCharacter)
+        } else {
+            jokeService.getJokeWithMainCharacter(mainCharacter)
+        }
+
+        return single
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun getBatchJokes(noExplicit: Boolean): Single<JokeBatchServerModel> {
+        val single: Single<JokeBatchServerModel> = if (noExplicit) {
+            jokeService.get20RandomJokesNoExplicit()
+        } else {
+            jokeService.get20RandomJokes()
         }
 
         return single

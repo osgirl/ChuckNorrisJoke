@@ -8,13 +8,13 @@ import android.widget.RelativeLayout
 import butterknife.BindView
 import butterknife.ButterKnife
 import uk.co.nbrown.cnjoke.RafaelRuiz.R
-import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.jokeView.ui.presenter.JokeViewPresenter
+import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.jokeView.ui.presenter.TextInputJokeViewPresenter
 
 /**
  * Created by rafaelruizmunoz on 08/11/2017.
  */
 
-class JokeView(context: Context, joke: String, var onAnother: OnAnother) : RelativeLayout(context), JokeViewPresenter {
+class JokeView(context: Context, joke: String, var onAnother: OnAnother) : RelativeLayout(context), TextInputJokeViewPresenter {
     @BindView(R.id.jokeTV)
     lateinit var jokeTV: AppCompatTextView
 

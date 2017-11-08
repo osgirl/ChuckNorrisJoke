@@ -10,4 +10,9 @@
     <string name="to_start_with">To start with the app, please click in the Floating Action Button</string>
     <string name="Theres_been_an_error">There\'s been an error with the request. Please retry again</string>
     <string name="Another_one">Another one</string>
+    <string name="Type_main_character">Type your first name</string>
+    <string name="Search">Search</string>
+    <string name="Please_type_a_name">Please type a name</string>
+    <string name="custom_name">Custom name</string>
+    <string name="never_ending">Never ending</string>
 </resources>
