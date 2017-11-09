@@ -81,25 +81,7 @@ class MainActivityLogic constructor(private var mainActivityPresenter: MainActiv
     override fun getTextInputJokeView(jokeUseCase: JokeUseCase): TextInputJokeView {
         var textInputJokeView: TextInputJokeView? = null
 
-        textInputJokeView = TextInputJokeView(mainActivityPresenter.getContext(), object : OnSearchPresenter {
-            override fun search(mainCharacter: String, noExplicit: Boolean) {
-                mainActivityPresenter.setLoading(true)
-                jokeUseCase.getJokeWithMainCharacter(mainCharacter, noExplicit)
-                        .subscribe(
-                                { joke ->
-                                    mainActivityPresenter.setLastLoaded(joke)
-                                    mainActivityPresenter.setLastTextInputLoaded(mainCharacter)
-                                    mainActivityPresenter.setLoading(false)
-                                    textInputJokeView!!.displayJoke(joke)
-                                },
-                                {
-                                    mainActivityPresenter.setLoading(false)
-                                    mainActivityPresenter.onError()
-                                }
-                        )
-            }
-
-        }, mainActivityPresenter)
+        textInputJokeView = TextInputJokeView(mainActivityPresenter.getContext(), mainActivityPresenter)
 
         return textInputJokeView
     }

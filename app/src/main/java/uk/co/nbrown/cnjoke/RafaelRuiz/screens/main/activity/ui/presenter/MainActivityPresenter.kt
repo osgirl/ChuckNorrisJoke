@@ -41,4 +41,6 @@ interface MainActivityPresenter {
     fun setLastTextInputLoaded(lastTI: String)
 
     fun setCategory(category: String?)
+
+    fun notValidName()
 }

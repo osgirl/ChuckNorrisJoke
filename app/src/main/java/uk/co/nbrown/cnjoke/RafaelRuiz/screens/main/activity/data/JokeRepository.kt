@@ -41,11 +41,11 @@ class JokeRepository constructor(private val jokeService: JokeService) {
                 .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun getJokeWithMainCharacter(mainCharacter: String, noExplicit: Boolean): Single<JokeServerModel> {
+    fun getJokeWithMainCharacter(mainCharacterFirstName: String, lastName: String, noExplicit: Boolean): Single<JokeServerModel> {
         val single: Single<JokeServerModel> = if (noExplicit) {
-            jokeService.getJokeWithMainCharacterNoExplicit(mainCharacter)
+            jokeService.getJokeWithMainCharacterNoExplicit(mainCharacterFirstName, lastName)
         } else {
-            jokeService.getJokeWithMainCharacter(mainCharacter)
+            jokeService.getJokeWithMainCharacter(mainCharacterFirstName, lastName)
         }
 
         return single

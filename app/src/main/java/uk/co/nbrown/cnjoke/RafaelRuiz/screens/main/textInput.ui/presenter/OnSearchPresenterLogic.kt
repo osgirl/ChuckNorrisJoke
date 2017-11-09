@@ -8,16 +8,24 @@ import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.activity.domain.JokeUseCase
  */
 
 class OnSearchPresenterLogic(private val jokeUseCase: JokeUseCase) : OnSearchPresenter {
+    override fun getLastName(textInput: String): String {
+        return textInput.split(" ")[1]
+    }
 
-    override fun search(mainCharacter: String, noExplicit: Boolean) {
-        jokeUseCase.getJokeWithMainCharacter(mainCharacter, noExplicit)
-                .subscribe(
-                        Consumer {
+    override fun getFirstName(textInput: String): String {
+        return textInput.split(" ")[0]
+    }
 
-                        },
-                        Consumer {
+    override fun isValidName(name: String): Boolean {
+        return !name.isEmpty() && name.split(" ").size == 2 && !getFirstName(name).isEmpty() && !getLastName(name).isEmpty()
+    }
 
-                        }
-                )
+    override fun search(firstName: String,
+                        lastName: String,
+                        noExplicit: Boolean,
+                        onSuccess: Consumer<String>,
+                        onError: Consumer<Throwable>) {
+        jokeUseCase.getJokeWithMainCharacter(firstName, lastName, noExplicit)
+                .subscribe(onSuccess, onError);
     }
 }

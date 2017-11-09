@@ -15,4 +15,5 @@
     <string name="Please_type_a_name">Please type a name</string>
     <string name="custom_name">Custom name</string>
     <string name="never_ending">Never ending</string>
+    <string name="not_valid_name">Type a valid name and last name. Ex: \"Nicholas Cage\"</string>
 </resources>

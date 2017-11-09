@@ -14,12 +14,12 @@ class JokeUseCase constructor(private val locationsRepository: JokeRepository) {
                 .map { jokeFromServer -> jokeFromServer.getJoke() }
     }
 
-    fun getJokeWithMainCharacter(mainCharacter: String, noExplicit: Boolean) : Single<String> {
-        return locationsRepository.getJokeWithMainCharacter(mainCharacter, noExplicit)
+    fun getJokeWithMainCharacter(firstName: String, lastName: String, noExplicit: Boolean): Single<String> {
+        return locationsRepository.getJokeWithMainCharacter(firstName, lastName, noExplicit)
                 .map { jokeFromServer -> jokeFromServer.getJoke() }
     }
 
-    fun getBatchJokes(noExplicit: Boolean) : Single<ArrayList<String>> {
+    fun getBatchJokes(noExplicit: Boolean): Single<ArrayList<String>> {
         return locationsRepository.getBatchJokes(noExplicit)
                 .map { jokeBatchFromServer -> jokeBatchFromServer.getJokes() }
     }

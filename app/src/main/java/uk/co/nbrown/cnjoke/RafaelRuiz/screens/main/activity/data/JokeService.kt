@@ -18,10 +18,12 @@ interface JokeService {
     fun getRandomJokeNoExplicit(): Single<JokeServerModel>
 
     @GET("random?escape=javascript")
-    fun getJokeWithMainCharacter(@Query("firstName") mainCharacter: String): Single<JokeServerModel>
+    fun getJokeWithMainCharacter(@Query("firstName") mainCharacterFirstName: String,
+                                 @Query("lastName") mainCharacterLastName: String): Single<JokeServerModel>
 
     @GET("random?escape=javascript&exclude=[explicit]")
-    fun getJokeWithMainCharacterNoExplicit(@Query("firstName") mainCharacter: String): Single<JokeServerModel>
+    fun getJokeWithMainCharacterNoExplicit(@Query("firstName") mainCharacterFirstName: String,
+                                           @Query("lastName") mainCharacterLastName: String): Single<JokeServerModel>
 
     @GET("random/20?escape=javascript")
     fun get20RandomJokes(): Single<JokeBatchServerModel>

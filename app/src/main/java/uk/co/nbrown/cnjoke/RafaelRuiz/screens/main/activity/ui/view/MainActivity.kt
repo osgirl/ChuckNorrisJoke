@@ -20,7 +20,6 @@ import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.activity.ui.presenter.MainAct
 
 
 class MainActivity : AppCompatActivity(), MainActivityPresenter {
-
     @BindView(R.id.mainContent)
     lateinit var mainContent: RelativeLayout
 
@@ -78,6 +77,10 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter {
 
     override fun setCategory(category: String?) {
         currentCategory = category
+    }
+
+    override fun notValidName() {
+        Snackbar.make(mainContent, R.string.not_valid_name, Snackbar.LENGTH_LONG).show()
     }
 
     override fun setLoading(loading: Boolean) {
