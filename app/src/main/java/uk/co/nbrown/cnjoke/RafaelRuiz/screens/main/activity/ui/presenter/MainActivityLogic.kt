@@ -9,7 +9,6 @@ import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.batchJokeView.ui.view.BatchJo
 import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.jokeView.ui.view.JokeView
 import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.jokeView.ui.view.OnAnother
 import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.jokeView.ui.view.TextInputJokeView
-import uk.co.nbrown.cnjoke.RafaelRuiz.screens.main.textInput.ui.presenter.OnSearchPresenter
 
 /**
  * Created by rafaelruizmunoz on 08/11/2017.
@@ -79,11 +78,7 @@ class MainActivityLogic constructor(private var mainActivityPresenter: MainActiv
      */
 
     override fun getTextInputJokeView(jokeUseCase: JokeUseCase): TextInputJokeView {
-        var textInputJokeView: TextInputJokeView? = null
-
-        textInputJokeView = TextInputJokeView(mainActivityPresenter.getContext(), mainActivityPresenter)
-
-        return textInputJokeView
+        return TextInputJokeView(mainActivityPresenter.getContext(), mainActivityPresenter)
     }
 
     override fun onGivenTextInput(mainContent: RelativeLayout, jokeUseCase: JokeUseCase, textInput: String, joke: String) {
@@ -161,8 +156,9 @@ class MainActivityLogic constructor(private var mainActivityPresenter: MainActiv
             return
         }
 
-        var currentCategory: String = savedInstanceState.getString(CURRENT_CATEGORY_KEY)
+        val currentCategory: String = savedInstanceState.getString(CURRENT_CATEGORY_KEY)
         mainActivityPresenter.setCategory(currentCategory)
+        mainActivityPresenter.setTitle(currentCategory)
 
         when (currentCategory) {
             mainActivityPresenter.getContext().getString(R.string.random_joke) -> {
