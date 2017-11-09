@@ -26,9 +26,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     // AppCompat Version
     def appCompatVersion = '27.0.0'
@@ -57,9 +54,6 @@ dependencies {
     // OkHttp
     def okHttpVersion = '3.6.0'
     compile 'com.squareup.okhttp3:logging-interceptor:' + okHttpVersion
-
-    // ViewAnimator
-    compile 'com.github.florent37:viewanimator:1.0.5'
 
     // FabButton
     compile 'com.github.clans:fab:1.6.4'
